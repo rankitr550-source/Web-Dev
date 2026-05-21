@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>City Details</title>
+    <style>
+        body {
+            font-family: Arial;
+        }
+        .menu a {
+            display: block;
+            margin: 10px;
+            cursor: pointer;
+            color: blue;
+        }
+    </style>
+    <script>
+        function showCity(city) {
+            var content = document.getElementById("content");
+
+            if (city == "delhi")
+                content.innerHTML = "<h2>Delhi</h2><p>Capital of India.</p>";
+
+            else if (city == "mumbai")
+                content.innerHTML = "<h2>Mumbai</h2><p>Financial capital of India.</p>";
+
+            else if (city == "lucknow")
+                content.innerHTML = "<h2>Lucknow</h2><p>Famous for Nawabi culture.</p>";
+        }
+    </script>
+</head>
+<body>
+    <h2>Select a City</h2>
+    <div class="menu">
+        <a onclick="showCity('delhi')">Delhi</a>
+        <a onclick="showCity('mumbai')">Mumbai</a>
+        <a onclick="showCity('lucknow')">Lucknow</a>
+    </div>
+    <div id="content">
+        <h3>Welcome</h3>
+        <p>Select a city to see details.</p>
+    </div>
+</body>
+
+</html>

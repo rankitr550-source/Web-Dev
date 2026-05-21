@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML forms</title>
+    <!-- use chatgpt only for style -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #74ebd5, #9face6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            background: #ffffff;
+            padding: 25px 30px;
+            width: 100%;
+            max-width: 420px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        form div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #444;
+            text-transform: capitalize;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #5a67d8;
+            box-shadow: 0 0 0 2px rgba(90, 103, 216, 0.2);
+        }
+
+        /* Radio & checkbox */
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: auto;
+            margin-right: 6px;
+        }
+
+        p {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #444;
+        }
+
+        /* Align radio buttons */
+        div input[type="radio"]+label {
+            margin-right: 12px;
+            display: inline-block;
+            font-weight: normal;
+        }
+
+        /* Terms */
+        #terms {
+            margin-right: 8px;
+        }
+
+        /* Button */
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background: #5a67d8;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #434190;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+    </style>
+
+</head>
+
+<body>
+    <form action="/submit.php">
+        <div>
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="enter name " required>
+        </div>
+
+        <div>
+            <label for="phone">Phone</label>
+            <input id="phone" type="tel" placeholder="enter phone" required>
+        </div>
+
+        <div>
+            <label for="email">email</label>
+            <input id="email" type="email" placeholder="enter email" required>
+        </div>
+
+        <div>
+            <label for="password">password</label>
+            <input id="password" type="password" placeholder="enter password" required>
+        </div>
+
+        <div>
+            <label for="dob">Date of birth</label>
+            <input id="dob" type="date" required>
+        </div>
+
+        <div>
+            <label for="gender">gender</label>
+            <select id="gender" required>
+                <option value="" disabled selected>select gender</option>
+                <option value="male">male</option>
+                <option value="female"></option>
+                <option value="other">other</option>
+            </select>
+
+        </div>
+
+        <div>
+            <p>subscription plan</p>
+            <input id="basic" type="radio" name="subscription" value="basic">
+            <label for="basic">Basic</label>
+
+            <input id="premium" type="radio" name="subscription" value="premium">
+            <label for="premium">Premium</label>
+
+            <input id="vIP" type="radio" name="subscription" value="vIP">
+            <label for="vIP">VIP</label>
+        </div>
+
+        <div>
+            <input id="terms" type="checkbox" required>
+            <label for="terms">i am argee to the terms and condition</label>
+        </div>
+
+        <div>
+            <label for="comments">comments</label>
+            <textarea id="comments" placeholder="Enter your comments" rows="4"></textarea>
+        </div>
+
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+
+    </form>
+</body>
+
+</html>

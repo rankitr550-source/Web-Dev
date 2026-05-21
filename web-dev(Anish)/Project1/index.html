@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Online Order</title>
+
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* BODY */
+        body {
+            background: #020617;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: linear-gradient(90deg, #ff416c, #ff4b2b);
+        }
+
+        .logo img {
+            width: 120px;
+        }
+
+        ul {
+            display: flex;
+            list-style: none;
+        }
+
+        ul li {
+            margin-left: 25px;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        ul li a:hover {
+            color: #ffe600;
+        }
+
+        /* HERO */
+        main {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)),
+                url("img/A.png") center/cover no-repeat;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        main img {
+            width: 100px;
+            margin-bottom: 30px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        main h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        main p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: #ddd;
+        }
+
+        /* SEARCH */
+        .search-box {
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-box input {
+            width: 50%;
+            padding: 14px;
+            border-radius: 30px 0 0 30px;
+            border: none;
+            outline: none;
+        }
+
+        .search-box button {
+            padding: 14px 25px;
+            border: none;
+            background: #00ff88;
+            color: black;
+            font-weight: bold;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .search-box button:hover {
+            background: #00cc6a;
+        }
+
+        /* FOOD SECTION */
+        .food-info {
+            padding: 50px 8%;
+            background: #061d12;
+        }
+
+        /* OFFER CARDS */
+        .offer-card {
+            display: flex;
+            align-items: center;
+            background: #0a2b1b;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            gap: 15px;
+        }
+
+        .offer-card img {
+            border-radius: 10px;
+        }
+
+        .Order-Btn {
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: none;
+            background: #ff4b2b;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .Order-Btn a {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* MENU TITLE */
+        .menu-A h1 {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        /* FILTER LINKS */
+        .offer-container a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        /* FOOD BOX GRID */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        /* FOOD CARD */
+        .Box {
+            background: #0a2b1b;
+            padding: 15px;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .Box:hover {
+            transform: translateY(-8px);
+        }
+
+        .img-box img {
+            width: 100%;
+        }
+
+        .details h2 {
+            margin: 10px 0;
+        }
+
+        .details p {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .details h6 {
+            margin-top: 10px;
+            color: #00ff88;
+        }
+
+        /* READ MORE BUTTON */
+        button[type="submit"] {
+            margin: 30px auto;
+            display: block;
+            padding: 10px 25px;
+            border: none;
+            background: #ff416c;
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        /* FEATURE CARDS */
+        .card {
+            background: #0a2b1b;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* ABOUT SECTION */
+        .we-are {
+            padding: 50px 8%;
+        }
+
+        .ares {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .ares img {
+            width: 300px;
+        }
+
+        .written h2 {
+            margin-bottom: 10px;
+        }
+
+        .written button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #00ff88;
+            border: none;
+            border-radius: 20px;
+        }
+
+        /* FORM */
+        .Book {
+            padding: 40px 8%;
+            text-align: center;
+        }
+
+        .fills input {
+            width: 60%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: none;
+        }
+
+        .submit button {
+            padding: 12px 25px;
+            background: #ff4b2b;
+            color: white;
+            border: none;
+            border-radius: 20px;
+        }
+
+        /* TESTIMONIAL */
+        .what {
+            padding: 40px 8%;
+            text-align: center;
+        }
+
+        .custom {
+            background: #0a2b1b;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #0a2b1b;
+        }
+
+        /* ANIMATION */
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:768px) {
+            .search-box input {
+                width: 70%;
+            }
+
+            .fills input {
+                width: 90%;
+            }
+
+            .ares {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="img/logo.png" alt="logo">
+        </div>
+
+        <ul>
+            <li><a href="#">Investor Relation</a></li>
+            <li><a href="#">Add restaurant</a></li>
+            <li><a href="#">Log in</a></li>
+            <li><a href="#">Sign up</a></li>
+        </ul>
+    </header>
+
+    <main>
+        <img src="img/an.png" alt="">
+        <h1>Discover the best food & drink</h1>
+        <p>Order food from your favorite restaurants near you</p>
+
+        <div class="search-box">
+            <input type="text" placeholder="Search for restaurant, cuisine or a dish">
+            <button>Search</button>
+        </div>
+    </main>
+
+    <!-- NEW SECTION -->
+    <section class="food-info">
+        <div class="offer-container">
+            <div class="offer-card">
+                <div class="offer-img">
+                    <img width="110" src="img/b.png" alt="Burger">
+                </div>
+                <div class="offer-container">
+                    <h4>Tasty sunday</h4>
+                    <h2>
+                        "30%"
+                        <span>off</span>
+                    </h2>
+                    <button class="Order-Btn">
+                        <a href="#">Order Now</a>
+                        <i class="fa-solid fa-card-shopping">
+                            ::before
+                        </i>
+                    </button>
+                </div>
+            </div>
+            <div class="offer-card">
+                <div class="offer-img">
+                    <img width="110" src="https://themewagon.github.io/feane/images/o2.jpg" alt="">
+                </div>
+                <div class="offer-container">
+                    <h4>Tasty sunday</h4>
+                    <h2>
+                        "30%"
+                        <span>off</span>
+                    </h2>
+                    <button class="Order-Btn">
+                        <a href="#">Order Now</a>
+                        <i class="fa-solid fa-card-shopping">
+                            ::before
+                        </i>
+                    </button>
+                </div>
+            </div>
+            <div class="offer-container">
+                <div class="menu-A">
+                    <h1>Our Menu</h1>
+                </div>
+            </div>
+            <div class="offer-container">
+                <a href="#">All</a>
+                <a href="#">Burger</a>
+                <a href="#">Pizza</a>
+                <a href="#">Pasta</a>
+            </div>
+            <div class="container">
+                <div class="filters">
+                    <div class="Box">
+                        <div class="img-box">
+                            <img width="110" src="https://themewagon.github.io/feane/images/f1.png" alt="">
+                        </div>
+                        <div class="details">
+                            <h2>Delicious Pizza</h2>
+                            <p>
+                                "Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem
+                                repellendus sed eaque"
+                            </p>
+                            <h6>$30</h6>
+                            <i class="fa-solid fa-card-shopping">
+                                ::before
+                            </i>
+                        </div>
+                    </div>
+                </div>
+                <div class="Box">
+                    <div class="img-box">
+                        <img width="110" src="https://themewagon.github.io/feane/images/f2.png" alt="">
+                    </div>
+                    <div class="details">
+                        <h2>Delicious Pizza</h2>
+                        <p>
+                            "Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem
+                            repellendus sed eaque"
+                        </p>
+                        <h6>$20</h6>
+                        <i class="fa-solid fa-card-shopping">
+                            ::before
+                        </i>
+                    </div>
+                </div>
+            </div>
+            <div class="Box">
+                <div class="img-box">
+                    <img width="110" src="https://themewagon.github.io/feane/images/f3.png" alt="">
+                </div>
+                <div class="details">
+                    <h2>Delicious Pizza</h2>
+                    <p>
+                        "Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem
+                        repellendus sed eaque"
+                    </p>
+                    <h6>$40</h6>
+                    <i class="fa-solid fa-card-shopping">
+                        ::before
+                    </i>
+                </div>
+            </div>
+        </div>
+        <div class="Box">
+            <div class="img-box">
+                <img width="110" src="https://themewagon.github.io/feane/images/f4.png" alt="">
+            </div>
+            <div class="details">
+                <h2>Delicious Pizza</h2>
+                <p>
+                    "Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus
+                    sed eaque"
+                </p>
+                <h6>$10</h6>
+                <i class="fa-solid fa-card-shopping">
+                    ::before
+                </i>
+            </div>
+        </div>
+        </div>
+        <div class="Box">
+            <div class="img-box">
+                <img width="110" src="https://themewagon.github.io/feane/images/f5.png" alt="">
+            </div>
+            <div class="details">
+                <h2>Delicious Pizza</h2>
+                <p>
+                    "Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus
+                    sed eaque"
+                </p>
+                <h6>$10</h6>
+                <i class="fa-solid fa-card-shopping">
+                    ::before
+                </i>
+            </div>
+        </div>
+        </div>
+        <div class="Box">
+            <div class="img-box">
+                <img width="110" src="https://themewagon.github.io/feane/images/f6.png" alt="">
+            </div>
+            <div class="details">
+                <h2>Delicious Pizza</h2>
+                <p>
+                    "Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus
+                    sed eaque"
+                </p>
+                <h6>$15</h6>
+                <i class="fa-solid fa-card-shopping">
+                    ::before
+                </i>
+            </div>
+        </div>
+        </div>
+        <div class="Box">
+            <div class="img-box">
+                <img width="110" src="https://themewagon.github.io/feane/images/f7.png" alt="">
+            </div>
+            <div class="details">
+                <h2>Delicious Pizza</h2>
+                <p>
+                    "Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus
+                    sed eaque"
+                </p>
+                <h6>$9</h6>
+                <i class="fa-solid fa-card-shopping">
+                    ::before
+                </i>
+            </div>
+        </div>
+        </div>
+        <button type="submit">Read more</button>
+        </div>
+        <div class="card">
+            <h3>Fast Delivery</h3>
+            <p>Get your food delivered to your doorstep in 30 minutes.</p>
+        </div>
+
+        <div class="card">
+            <h3>Best Restaurants</h3>
+            <p>Order from top-rated restaurants near you.</p>
+        </div>
+
+        <div class="card">
+            <h3>Easy Payments</h3>
+            <p>Pay online using UPI, cards, or cash on delivery.</p>
+        </div>
+    </section>
+    <section class="we-are">
+        <div class="container">
+            <div class="ares">
+                <img width="110" src="https://themewagon.github.io/feane/images/about-img.png" alt="">
+                <div class="written">
+                    <h2>We Are Feane</h2>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                        alteration in some form, by injected humour, or randomised words which don't look even slightly
+                        believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
+                        anything embarrassing hidden in the middle of text. All</p>
+                    <button class="submit">Read more</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <header class="Book">
+        <div class="form-container">
+            <h1>Book A Table</h1>
+        </div>
+        <div class="form-container">
+            <form class="form-filling" id="bookingForm"></form>
+        </div>
+        <div class="fills">
+            <input type="text" name="name" placeholder="your name" required>
+        </div>
+        <div class="fills">
+            <input type="number" name="phone" placeholder="phone number" required>
+        </div>
+        <div class="fills">
+            <input type="email" name="email" placeholder="your email" required>
+        </div>
+        <div class="fills">
+            <input type="number" name="persons" placeholder="How many persons?" required>
+        </div>
+        <div class="fills">
+            <input type="date" name="date" required>
+        </div>
+        <div class="submit">
+            <button type="submit">BOOK NOW</button>
+        </div>
+        <div>
+            <p id="bookMsg"></p>
+        </div>
+    </header>
+    <div class="what">
+        <div class="form-container">
+            <h2>What Says Our Customers</h2>
+        </div>
+        <div class="form-container">
+            <div class="custom">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam Mike Hamell</p>
+                <h5>magna aliqua⭐⭐⭐⭐⭐⭐</h5>
+            </div>
+            <div class="form-container">
+                <div class="custom">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam Mike Hamell</p>
+                    <h5>magna aliqua⭐⭐⭐⭐⭐⭐</h5>
+                </div>
+            </div>
+            <div class="photo nam">
+                <div class="name">
+                    <img width="120" src="https://themewagon.github.io/feane/images/client2.jpg" alt="">
+                </div>
+                <div class="name">
+                    <img width="120" src="https://themewagon.github.io/feane/images/client1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <footer>
+            Copyright © 2026 | All rights reserved
+        </footer>
+
+</body>
+
+</html>

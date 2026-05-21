@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Body Styling */
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        }
+
+        /* Table Styling */
+        table {
+            width: 600px;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Header Row */
+        thead tr:first-child {
+            background-color: #2c5364;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Table Cells */
+        th,
+        td {
+            padding: 14px 18px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* Alternate Row Color */
+        thead tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Hover Effect */
+        thead tr:not(:first-child):hover {
+            background-color: #e0f7fa;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        /* Header Text Style */
+        th {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Score</th>
+                <th>Match</th>
+            </tr>
+
+            <tr>
+                <td>Rohit Sharma</td>
+                <td>100</td>
+                <td>IPL 2023</td>
+            </tr>
+
+            <tr>
+                <td>Virat Kohli</td>
+                <td>99</td>
+                <td>IPL 2023</td>
+            </tr>
+
+            <tr>
+                <td>SKY</td>
+                <td>100</td>
+                <td>IPL 2023</td>
+            </tr>
+        </thead>
+    </table>
+</body>
+
+</html>
